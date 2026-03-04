@@ -1,0 +1,38 @@
+class Student:
+    def __init__(self, name, rollNumber):
+        self.name = name
+        self.rollNumber = rollNumber
+    def display(self):
+        print("Name:", self.name)
+        print("Roll Number:", self.rollNumber)
+class UndergraduateStudent(Student):
+    def __init__(self, name, rollNumber, m1, m2, m3):
+        super().__init__(name, rollNumber)
+        self.marks = [m1, m2, m3]
+    def calculateAverage(self):
+        return sum(self.marks) / 3
+    def display(self):
+        average = self.calculateAverage()
+        print("Undergraduate Student")
+        print("Name:", self.name)
+        print("Average Marks:", average)
+class PostgraduateStudent(Student):
+    def __init__(self, name, rollNumber, m1, m2, m3, m4):
+        super().__init__(name, rollNumber)
+        self.marks = [m1, m2, m3, m4]
+
+    def calculateAverage(self):
+        return sum(self.marks) / 4
+    def display(self):
+        average = self.calculateAverage()
+        print("Postgraduate Student")
+        print("Name:", self.name)
+        print("Average Marks:", average)
+def main():
+    ug = UndergraduateStudent("Abinaya", 101, 85, 90, 88)
+    pg = PostgraduateStudent("Karthika", 201, 80, 75, 85, 90)
+    ug.display()
+    print("--------------------")
+    pg.display()
+if __name__ == "__main__":
+    main()
